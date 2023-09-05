@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -124,7 +125,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-STRIPE_PUBLIC_KEY = "pk_test_51NmjuoIat3na0iv03MXOgn2Ee96P3GbgO5ygfOf4C8BTpZ5U2E7lJDRY3r40PhCq7mfWGInmSshV7n01JzMZNur200ZpmfgO0g"
-STRIPE_SECRET_KEY = "sk_test_51NmjuoIat3na0iv03KBUKgcsMg36aQx58WiV5BgpGK93RuK8qktDhsVKGgcLnIe9DXMgfCoq7K8TNT5YYOUN7JTn00rvXP7HjM"
-STRIPE_WEBHOOK_SECRET = "whsec_7e6909facfcd2f4c126fc7154b3ee3fd40996e697e616b651b16fb4fba50ae79"
+STRIPE_PUBLIC_KEY = os.environ['STRIPE_PUBLIC_KEY']
+STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
+STRIPE_WEBHOOK_SECRET = os.environ['STRIPE_WEBHOOK_SECRET']
